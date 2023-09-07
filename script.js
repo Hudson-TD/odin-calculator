@@ -3,8 +3,9 @@ let numTwo = "";
 let operandClicked = false;
 
 let displayText = document.getElementById("screen");
-let numbers = document.querySelectorAll(".numerical-button");
-let operands = document.querySelectorAll(".operand-button");
+const numbers = document.querySelectorAll(".numerical-button");
+const operands = document.querySelectorAll(".operand-button");
+const clearBtn = document.getElementById("clear-button");
 
 operands.forEach((button) => {
   button.addEventListener("click", (e) => {
@@ -49,3 +50,12 @@ function divide(inputOne, inputTwo) {
 function operate(numberOne, numberTwo, operator) {
   operator(numberOne, numberTwo);
 }
+
+function reset() {
+  numOne = "";
+  numTwo = "";
+  operandClicked = false;
+  displayText = "";
+}
+
+clearBtn.addEventListener("click", reset);
