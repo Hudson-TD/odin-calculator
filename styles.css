@@ -11,8 +11,8 @@ main {
   align-items: center;
   border: 2px solid black;
   border-radius: 5px;
-  width: 500px;
-  height: 700px;
+  width: 600px;
+  height: 800px;
 }
 
 #screen {
@@ -22,9 +22,9 @@ main {
   border: 2px solid black;
   border-radius: 5px;
   font-size: 35px;
-  width: 400px;
+  width: 500px;
   height: 100px;
-  margin-bottom: 100px;
+  margin-bottom: 10px;
 }
 
 #buttons-container {
@@ -32,23 +32,35 @@ main {
   flex-wrap: wrap;
   border: 2px solid black;
   border-radius: 5px;
-  width: 400px;
-  height: 400px;
+  width: 500px;
+  height: 150px;
+  margin-bottom: 10px;
 }
 
-#addition-button,
-#subtraction-button,
-#multiplication-button,
-#division-button {
-  flex: 1;
+#numbers-container {
+  display: flex;
+  flex-wrap: wrap;
+  border: 2px solid black;
+  border-radius: 5px;
+  width: 500px;
+  height: 400px;
+  margin-bottom: 10px;
+}
+
+.button {
+  flex: 1 1 30%;
   display: flex;
   justify-content: center;
   align-items: center;
   border: 2px solid black;
   border-radius: 5px;
-  font-size: 25px;
+  font-size: 18px;
   font-weight: bold;
-  width: 50px;
-  height: 50px;
-  margin: 15px;
+  width: 40px;
+  height: 40px;
+  margin: 10px;
+}
+
+#clear-button {
+  margin-top: 40px;
 }
