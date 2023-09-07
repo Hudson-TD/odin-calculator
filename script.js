@@ -9,3 +9,7 @@ function subtract(inputOne, inputTwo) {
 function multiplication(inputOne, inputTwo) {
   return inputOne * inputTwo;
 }
+
+function division(inputOne, inputTwo) {
+  return inputOne / inputTwo;
+}
