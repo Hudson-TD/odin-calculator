@@ -61,6 +61,11 @@ main {
   margin: 10px;
 }
 
-#clear-button {
+#clear-button,
+#submit-button {
   margin-top: 40px;
+}
+
+#submit-button {
+  background-color: rgb(255, 145, 0);
 }
