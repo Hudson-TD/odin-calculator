@@ -28,7 +28,7 @@ function operate(operation) {
     default:
       return;
   }
-  outputText.innerText = result;
+  outputText.innerText = result.toFixed(2);
 }
 
 numberButtons.forEach((button) => {
