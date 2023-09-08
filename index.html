@@ -7,39 +7,30 @@
     <link rel="stylesheet" type="text/css" href="styles.css" />
   </head>
   <body>
-    <main>
-      <div id="main-container">
-        <div id="screen">Values go here</div>
-        <div id="buttons-container">
-          <button class="button operand-button" id="addition-button">+</button>
-          <button class="button operand-button" id="subtraction-button">
-            -
-          </button>
-          <button class="button operand-button" id="multiplication-button">
-            x
-          </button>
-          <button class="button operand-button" id="division-button">/</button>
-        </div>
-        <div id="numbers-container">
-          <button class="button numerical-button" value="1">1</button>
-          <button class="button numerical-button" value="2">2</button>
-          <button class="button numerical-button" value="3">3</button>
-          <button class="button numerical-button" value="4">4</button>
-          <button class="button numerical-button" value="5">5</button>
-          <button class="button numerical-button" value="6">6</button>
-          <button class="button numerical-button" value="7">7</button>
-          <button class="button numerical-button" value="8">8</button>
-          <button class="button numerical-button" value="9">9</button>
-          <button class="button numerical-button" value="0">0</button>
-          <button class="button numerical-button" id="clear-button">
-            Clear
-          </button>
-          <button class="button numerical-button" id="submit-button">
-            Submit
-          </button>
-        </div>
+    <div class="calculator-grid">
+      <div class="output">
+        <div class="previous-operand">123 +</div>
+        <div class="current-operand">456</div>
       </div>
-    </main>
+      <button class="span-two">AC</button>
+      <button>DEL</button>
+      <button>÷</button>
+      <button>1</button>
+      <button>2</button>
+      <button>3</button>
+      <button>*</button>
+      <button>4</button>
+      <button>5</button>
+      <button>6</button>
+      <button>+</button>
+      <button>7</button>
+      <button>8</button>
+      <button>9</button>
+      <button>-</button>
+      <button>.</button>
+      <button>0</button>
+      <button class="span-two">=</button>
+    </div>
     <script src="script.js"></script>
   </body>
 </html>
