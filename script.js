@@ -74,4 +74,16 @@ allClearButton.addEventListener("click", (button) => {
   outputText.innerText = "";
 });
 
-deleteButton.addEventListener("click", (button) => {});
+deleteButton.addEventListener("click", () => {
+  let updatedValue;
+  if (operationClickCounter <= 1) {
+    updatedValue = prevValue.slice(0, prevValue.length - 1);
+    prevValue = updatedValue;
+    outputText.innerText = prevValue;
+  }
+  if (operationClickCounter > 1) {
+    updatedValue = currentValue.slice(0, currentValue.length - 1);
+    currentValue = updatedValue;
+    outputText.innerText = currentValue;
+  }
+});
