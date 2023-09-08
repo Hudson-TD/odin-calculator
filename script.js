@@ -1,91 +1,77 @@
-class Calculator {
-  constructor(prevNumberText, currentNumberText) {
-    this.prevNumberText = prevNumberText;
-    this.currentNumberText = currentNumberText;
-    this.clear();
-  }
+const numberButtons = document.querySelectorAll(".number");
+const operationButtons = document.querySelectorAll(".operation");
+const equalsButton = document.getElementById("equals");
+const deleteButton = document.getElementById("delete");
+const allClearButton = document.getElementById("all-clear");
+let outputText = document.getElementById("output");
 
-  clear() {
-    this.currentNumberText = '';
-    this.c
+let prevValue = "";
+let currentValue = "";
+let operation = undefined;
+let operationClickCounter = 1;
+let result;
+
+function operate(operation) {
+  switch (operation) {
+    case "+":
+      result = Number(prevValue) + Number(currentValue);
+      break;
+    case "-":
+      result = Number(prevValue) - Number(currentValue);
+      break;
+    case "*":
+      result = Number(prevValue) * Number(currentValue);
+      break;
+    case "÷":
+      result = Number(prevValue) / Number(currentValue);
+      break;
+    default:
+      return;
   }
+  outputText.innerText = result;
 }
 
-let displayText = document.getElementById("screen");
-const numbers = document.querySelectorAll(".numerical-button");
-const operands = document.querySelectorAll(".operand-button");
-const clearBtn = document.getElementById("clear-button");
-const submitBtn = document.getElementById("submit-button");
-
-operands.forEach((button) => {
-  button.addEventListener("click", (e) => {
-    operandClicked = true;
-    selectedOperand = e.target.value;
-    console.log(selectedOperand);
-  });
-});
-
-numbers.forEach((button) => {
-  button.addEventListener("click", (e) => {
-    if (operandClicked === false) {
-      numOne += e.target.value;
-      console.log(`numOne: ${numOne}`);
-      console.log(typeof numOne);
-      displayText.innerText = numOne;
-    } else {
-      numTwo += e.target.value;
-      console.log(`numTwo: ${numTwo}`);
-      console.log(typeof numTwo);
-      displayText.innerText = numTwo;
+numberButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    if (operationClickCounter === 1) {
+      prevValue += button.innerText;
+      console.log(prevValue);
+      outputText.innerText = prevValue;
+    } else if (operationClickCounter === 2) {
+      currentValue += button.innerText;
+      console.log(currentValue);
+      outputText.innerText = currentValue;
+    } else if (operationClickCounter >= 3) {
+      currentValue += button.innerText;
+      console.log(currentValue);
+      outputText.innerText = currentValue;
     }
   });
 });
 
-function add(inputOne, inputTwo) {
-  return inputOne + inputTwo;
-}
+operationButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    operationClickCounter++;
+    if (operationClickCounter >= 3) {
+      operate(operation);
+      prevValue = result.toString();
+      currentValue = "";
+    }
+    operation = button.innerText;
+  });
+});
 
-function subtract(inputOne, inputTwo) {
-  return inputOne - inputTwo;
-}
+equalsButton.addEventListener("click", (button) => {
+  operate(operation);
+});
 
-function multiply(inputOne, inputTwo) {
-  return inputOne * inputTwo;
-}
+allClearButton.addEventListener("click", (button) => {
+  console.log(`AC clicked`);
+  prevValue = "";
+  currentValue = "";
+  operation = undefined;
+  operationClickCounter = 1;
+  outputText.innerText = "";
+});
 
-function divide(inputOne, inputTwo) {
-  return inputOne / inputTwo;
-}
-
-function operate() {
-  if (selectedOperand === "add") {
-    let sum = add(Number(numOne), Number(numTwo));
-    let result = sum;
-    displayText.innerText = result;
-  } else if (selectedOperand === "subtract") {
-    let difference = subtract(Number(numOne), Number(numTwo));
-    let result = difference;
-    displayText.innerText = result;
-  } else if (selectedOperand === "multiply") {
-    let product = multiply(Number(numOne), Number(numTwo));
-    displayText.innerText = product;
-    let result = product;
-    displayText.innerText = result;
-  } else if (selectedOperand === "divide") {
-    let quotient = divide(Number(numOne), Number(numTwo));
-    displayText.innerText = quotient;
-    let result = quotient;
-    displayText.innerText = result;
-  }
-}
-
-function reset() {
-  numOne = "";
-  numTwo = "";
-  result = "";
-  operandClicked = false;
-  displayText.innerText = "";
-}
-
-clearBtn.addEventListener("click", reset);
-submitBtn.addEventListener("click", operate);
+deleteButton.addEventListener("click", (button) => {});
