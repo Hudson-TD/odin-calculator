@@ -28,22 +28,27 @@ function operate(operation) {
     default:
       return;
   }
-  outputText.innerText = result.toFixed(2);
+
+  if (result.toString().includes(".") && result.toString().length > 12) {
+    outputText.innerText = result.toFixed(4);
+  } else {
+    outputText.innerText = result;
+  }
 }
 
 numberButtons.forEach((button) => {
   button.addEventListener("click", () => {
     if (operationClickCounter === 1) {
+      if (button.innerText === "." && prevValue.includes(".")) return;
       prevValue += button.innerText;
-      console.log(prevValue);
       outputText.innerText = prevValue;
     } else if (operationClickCounter === 2) {
+      if (button.innerText === "." && currentValue.includes(".")) return;
       currentValue += button.innerText;
-      console.log(currentValue);
       outputText.innerText = currentValue;
     } else if (operationClickCounter >= 3) {
+      if (button.innerText === "." && currentValue.includes(".")) return;
       currentValue += button.innerText;
-      console.log(currentValue);
       outputText.innerText = currentValue;
     }
   });
