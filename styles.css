@@ -35,7 +35,7 @@ body {
 
 #delete,
 #all-clear {
-  background-color: rgb(238, 62, 62, 0.25);
+  background-color: rgb(255, 129, 129);
 }
 
 #delete:hover,
@@ -44,7 +44,7 @@ body {
 }
 
 #equals {
-  background-color: rgb(253, 190, 166);
+  background-color: rgb(255, 123, 71);
 }
 
 .number {
@@ -56,7 +56,7 @@ body {
 }
 
 #equals:hover {
-  background-color: lightsalmon;
+  background-color: rgb(207, 78, 27);
 }
 
 .number:hover {
